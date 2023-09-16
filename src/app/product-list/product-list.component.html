@@ -1,0 +1,28 @@
+<h2>Liste des Produits</h2>
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom du Produit</th>
+            <th>Type de Produit</th>
+            <th>Date de Creation</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.typeProduct.name}}</td>
+            <td>{{ currentDate | date:'dd/MM/yyyy' }}</td>
+            <td><button class="btn btn-success mt-4 d-inline w-20 mr-2" type="button" (click)="updateProduct(product)" routerLink="/product/update">Modifier</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="btn btn-warning mt-4 d-inline w-20 mr-2" type="button" routerLink="/product">Ajouter</button>
+<br>
+<button class="btn btn-primary mt-4 d-inline w-20" type="submit" routerLink="/productType">Ajouter Type </button>
+

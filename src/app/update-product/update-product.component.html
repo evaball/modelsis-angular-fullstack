@@ -1,0 +1,22 @@
+<div class="col-md-8 offset-md-3">
+    <h3> Modification Produits</h3>
+    <br>
+    <!-- <form (ngSubmit) = "onSubmit()"> -->
+    <div class="form-group">
+    <label> Nom du Produit</label>
+    <input type="text" class="form-control" id="name" [(ngModel)] = "currentProduct.name" name="name">
+    </div>
+    <br>
+    <div class="form-group">
+    <label>Type de Produit</label>
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="currentProduct.typeProduct.id_type">
+        <option *ngFor="let typeProduct of typeProducts" [value]="typeProduct.id_type">{{typeProduct.name}}</option>
+      </select>
+    </div>
+    <br>
+    <button class="btn btn-warning mt-4 d-inline w-20 mr-2" type="button" (click)="annuler()">Annuler</button>
+    <div class="space">
+    </div>
+    <button class="btn btn-primary mt-4 d-inline w-20" type="submit" (click)="updateProduct()">Modifier</button>
+    <!-- </form> -->
+    </div>
