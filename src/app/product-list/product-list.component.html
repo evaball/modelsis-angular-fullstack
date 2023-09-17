@@ -15,8 +15,8 @@
             <td>{{product.id}}</td>
             <td>{{product.name}}</td>
             <td>{{product.typeProduct.name}}</td>
-            <td>{{ currentDate | date:'dd/MM/yyyy' }}</td>
-            <td><button type="button" class="btn btn-info" (click)="updateProduct(product)" routerLink="/product/update">Modifier</button>
+            <td>{{product.createdDate }}</td>
+            <td><button type="button" class="btn btn-warning" (click)="updateProduct(product)" routerLink="/product/update">Modifier</button>
             </td>
         </tr>
     </tbody>

@@ -14,6 +14,9 @@ export class CreateProductComponent implements OnInit{
 
   product: Product = new Product();
   typeProducts: TypeProduct[]=[];
+  typeProductId!: number;
+  productName!: string;
+
 
 
   constructor(
@@ -25,6 +28,7 @@ export class CreateProductComponent implements OnInit{
   addForm!: FormGroup;
   ngOnInit(): void {
    
+    this.findAllTypeProducts();
     this.addForm = new FormGroup({
       name: new FormControl('', [
         Validators.required
@@ -44,22 +48,29 @@ export class CreateProductComponent implements OnInit{
     this.addForm;
   }
   addProduct(){
-
-    let data = {
-      name : this.addForm.value.name,
-      typeProduct : this.addForm.value.typeProduct
-      
+    let data={
+      "name": this.productName,
+        "typeProduct": {
+          "id_type": this.typeProductId
+      }
+    
     }
-
-     console.log(data);
-     this.product = <Product>data;
     this.productService
-    .addProduct(this.product)
+    .addProduct(data)
     .subscribe(data=>{
       console.log(JSON.stringify("Produit ajoute"))
       this.router.navigateByUrl('/products')
     }, 
     error=>{console.log(error)})
+  }
+
+  findAllTypeProducts(){
+    this.productService
+    .findAllTypeProduct()
+    .subscribe(data=>{
+      this.typeProducts=<TypeProduct[]>data;
+      console.log(data);
+    })
   }
 
 }

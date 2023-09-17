@@ -1,20 +1,21 @@
 <div class="col-md-8 offset-md-3">
 <h3>Ajout Produits</h3>
 <br>
-<form (ngSubmit) = "onSubmit()">
+<!-- <form (ngSubmit) = "onSubmit()"> -->
 <div class="form-group">
 <label> Nom du Produit</label>
-<input type="text" class="form-control" id="name" [(ngModel)] = "product.name" name="name">
+<input type="text" class="form-control" id="name" [(ngModel)] = "productName" name="name">
 </div>
 <br>
 <div class="form-group">
     <label>Type de Produit</label>
-    <select class="form-select" aria-label="Default select example" [(ngModel)]="product.typeProduct.id_type">
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="typeProductId">
         <option *ngFor="let typeProduct of typeProducts" [value]="typeProduct.id_type">{{typeProduct.name}}</option>
       </select>
     </div>
 <br>
 <button type="button" class="btn btn-success"(click)="addProduct()">Ajouter</button><div class="space">
 </div>  
-<button type="button" class="btn btn-warning" (click)="annuler()">Annuler</button></form>
+<button type="button" class="btn btn-danger" (click)="annuler()">Annuler</button>
+<!-- </form> -->
 </div>

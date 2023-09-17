@@ -61,11 +61,11 @@ export class UpdateProductComponent {
     .subscribe(data=>{
       console.log("Produit modifié")
       this.router.navigateByUrl('/products')
-    }, error=>{
-      console.log(error)
-    })
+    // }, error=>{
+    //   console.log(error)
+    }
+    )
   }
-
   findAllTypeProducts(){
     this.productService
     .findAllTypeProduct()

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { environment } from 'src/environments/environment';
@@ -16,7 +16,10 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   addProduct(product: any) {
-    return this.http.post(`${this.BASE_URL}/product/add`, product);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+
+    return this.http.post(`${this.BASE_URL}/product/add`, product
+    , { headers, responseType: 'text'});
   }
 
   findAllProduct(){
@@ -24,11 +27,16 @@ export class ProductService {
   }
 
   updateProduct(id: number, product: any){
-    return this.http.put(`${this.BASE_URL}/product/update/${id}`, product);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.put(`${this.BASE_URL}/product/update/${id}`, product
+    , { headers, responseType: 'text'  }
+    );
   }
 
   addTypeProduct(typeProduct: any) {
-    return this.http.post(`${this.BASE_URL}/typeProduct`, typeProduct);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post(`${this.BASE_URL}/typeProduct`, typeProduct
+    , { headers, responseType: 'text'});
   }
 
   findAllTypeProduct(){
