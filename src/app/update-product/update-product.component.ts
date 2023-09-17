@@ -61,10 +61,10 @@ export class UpdateProductComponent {
     this.productService
     .updateProduct(this.currentProduct.id, this.currentProduct)
     .subscribe(data=>{
-      this.toastr.success('Opération réussie', 'Succès');
+      this.toastr.success('Opération réussie', 'Succès', {positionClass:'toast-top-right'});
       this.router.navigateByUrl('/products');
-    // }, error=>{
-    //   console.log(error)
+     }, error=>{
+      this.toastr.error('Operation echouée', 'erreur');
     }
     )
   }

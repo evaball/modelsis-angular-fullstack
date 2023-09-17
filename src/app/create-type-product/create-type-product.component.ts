@@ -47,7 +47,10 @@ export class CreateTypeProductComponent {
         this.toastr.success('Opération réussie', 'Succès');
         this.router.navigateByUrl('/products');
       },
-      error=> console.log(error));
+      error=>{
+        this.toastr.error('Operation echouée', 'erreur');
+      }
+      );
   }
   
 

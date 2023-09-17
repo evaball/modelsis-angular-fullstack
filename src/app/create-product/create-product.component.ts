@@ -60,10 +60,13 @@ export class CreateProductComponent implements OnInit{
     this.productService
     .addProduct(data)
     .subscribe(data=>{
-      this.toastr.success('Opération réussie', 'Succès')
+      this.toastr.success('Opération réussie', 'Succès', {positionClass:'toast-top-right'})
       this.router.navigateByUrl('/products')
     }, 
-    error=>{console.log(error)})
+    error=>{
+      this.toastr.error('Operation echouée', 'erreur');
+    }
+    )
   }
 
   findAllTypeProducts(){
