@@ -18,24 +18,24 @@ export class ProductService {
   addProduct(product: any) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
 
-    return this.http.post(`${this.BASE_URL}/product/add`, product
+    return this.http.post(`${this.BASE_URL}/products`, product
     , { headers, responseType: 'text'});
   }
 
   findAllProduct(){
-    return this.http.get(`${this.BASE_URL}/product/all`);
+    return this.http.get(`${this.BASE_URL}/products`);
   }
 
   updateProduct(id: number, product: any){
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put(`${this.BASE_URL}/product/update/${id}`, product
+    return this.http.put(`${this.BASE_URL}/products/${id}`, product
     , { headers, responseType: 'text'  }
     );
   }
 
   addTypeProduct(typeProduct: any) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post(`${this.BASE_URL}/typeProduct`, typeProduct
+    return this.http.post(`${this.BASE_URL}/productType`, typeProduct
     , { headers, responseType: 'text'});
   }
 
