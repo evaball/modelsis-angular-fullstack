@@ -10,8 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./create-type-product.component.css']
 })
 export class CreateTypeProductComponent {
-  typeProduct!: TypeProduct ;
-  TypeProduct: TypeProduct[]=[];
+   typeProduct: TypeProduct = new TypeProduct() ;
+ 
+
 
 
   constructor(
@@ -38,21 +39,14 @@ export class CreateTypeProductComponent {
     this.addForm;
   }
 
-  addTypeProduct(){
-
-    let data = {
-      name : this.addForm.value.name
-        }
-
-     console.log(data);
-     this.typeProduct = <TypeProduct>data;
-    this.productService
-    .addTypeProduct(this.typeProduct)
-    .subscribe(data=>{
-      console.log(JSON.stringify("Type Produit ajoute"))
-      this.router.navigateByUrl('/products')
-    }, 
-    error=>{console.log(error)})
+  addTypeProduct() {
+    this.productService.addTypeProduct(this.typeProduct)
+      .subscribe(data => {
+        console.log("Type Produit ajouté avec succès");
+        this.router.navigateByUrl('/products');
+      },
+      error=> console.log(error));
   }
+  
 
 }

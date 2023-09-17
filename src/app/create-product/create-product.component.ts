@@ -3,6 +3,7 @@ import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TypeProduct } from '../type-product';
 
 @Component({
   selector: 'app-create-product',
@@ -12,6 +13,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CreateProductComponent implements OnInit{
 
   product: Product = new Product();
+  typeProducts: TypeProduct[]=[];
+
 
   constructor(
 

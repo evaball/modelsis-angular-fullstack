@@ -8,13 +8,13 @@
 </div>
 <br>
 <div class="form-group">
-<label>Type de Produit</label>
-<input type="text" class="form-control" id="type" [(ngModel)] = "product.typeProduct" name= "type">
-</div>
+    <label>Type de Produit</label>
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="product.typeProduct.id_type">
+        <option *ngFor="let typeProduct of typeProducts" [value]="typeProduct.id_type">{{typeProduct.name}}</option>
+      </select>
+    </div>
 <br>
-<button class="btn btn-warning mt-4 d-inline w-20 mr-2" type="button" (click)="annuler()">Annuler</button>
-<div class="space">
+<button type="button" class="btn btn-success"(click)="addProduct()">Ajouter</button><div class="space">
 </div>  
-<button class="btn btn-primary mt-4 d-inline w-20" type="submit" (click)="addProduct()">Ajouter</button>
-</form>
+<button type="button" class="btn btn-warning" (click)="annuler()">Annuler</button></form>
 </div>

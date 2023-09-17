@@ -13,7 +13,6 @@ import { TypeProduct } from '../type-product';
 export class UpdateProductComponent {
   currentProduct!: Product;
   typeProducts: TypeProduct[]=[];
-  selectedTypeProductId!: number;
   
   constructor(
     private productService: ProductService,

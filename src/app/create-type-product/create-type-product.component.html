@@ -3,12 +3,11 @@
     <br>
     <form (ngSubmit) = "onSubmit()">
     <div class="form-group">
-    <label> Nom du Produit</label>
+    <label> Nom du Type</label>
     <input type="text" class="form-control" id="name" [(ngModel)] = "typeProduct.name" name="name">
     </div>
-    <button class="btn btn-warning mt-4 d-inline w-20 mr-2" type="button" (click)="annuler()">Annuler</button>
-    <div class="space">
-    </div>
-    <button class="btn btn-primary mt-4 d-inline w-20" type="submit" (click)="addTypeProduct()">Ajouter</button>
-    </form>
+    <br>
+    <button type="button" class="btn btn-success"(click)="addTypeProduct()">Ajouter</button><div class="space">
+    </div>  
+    <button type="button" class="btn btn-warning" (click)="annuler()">Annuler</button></form>
     </div>

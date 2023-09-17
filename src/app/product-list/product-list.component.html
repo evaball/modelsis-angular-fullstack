@@ -16,13 +16,14 @@
             <td>{{product.name}}</td>
             <td>{{product.typeProduct.name}}</td>
             <td>{{ currentDate | date:'dd/MM/yyyy' }}</td>
-            <td><button class="btn btn-success mt-4 d-inline w-20 mr-2" type="button" (click)="updateProduct(product)" routerLink="/product/update">Modifier</button>
+            <td><button type="button" class="btn btn-info" (click)="updateProduct(product)" routerLink="/product/update">Modifier</button>
             </td>
         </tr>
     </tbody>
 </table>
 
-<button class="btn btn-warning mt-4 d-inline w-20 mr-2" type="button" routerLink="/product">Ajouter</button>
-<br>
-<button class="btn btn-primary mt-4 d-inline w-20" type="submit" routerLink="/productType">Ajouter Type </button>
+
+<button type="button" class="btn btn-primary" routerLink="/product">Ajouter</button>
+<br><br>
+<button type="button" class="btn btn-info" routerLink="/productType">Ajouter type</button>
 

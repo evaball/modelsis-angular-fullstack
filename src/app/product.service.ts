@@ -28,7 +28,7 @@ export class ProductService {
   }
 
   addTypeProduct(typeProduct: any) {
-    return this.http.post(`${this.BASE_URL}/productType`, typeProduct);
+    return this.http.post(`${this.BASE_URL}/typeProduct`, typeProduct);
   }
 
   findAllTypeProduct(){
