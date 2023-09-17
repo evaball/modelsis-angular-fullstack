@@ -4,6 +4,7 @@ import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TypeProduct } from '../type-product';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-product',
@@ -16,7 +17,8 @@ export class UpdateProductComponent {
   
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   editForm!: FormGroup;
@@ -59,8 +61,8 @@ export class UpdateProductComponent {
     this.productService
     .updateProduct(this.currentProduct.id, this.currentProduct)
     .subscribe(data=>{
-      console.log("Produit modifié")
-      this.router.navigateByUrl('/products')
+      this.toastr.success('Opération réussie', 'Succès');
+      this.router.navigateByUrl('/products');
     // }, error=>{
     //   console.log(error)
     }

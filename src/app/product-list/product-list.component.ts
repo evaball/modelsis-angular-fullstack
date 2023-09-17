@@ -13,6 +13,8 @@ export class ProductListComponent implements OnInit{
   products: Product[]=[];
   currentDate: Date = new Date();
   currentProduct!: Product;
+  pageSize: number = 3; // Nombre d'éléments par page
+  p: number = 1; // Page actuelle
 
 
   constructor( private productService: ProductService){

@@ -3,6 +3,7 @@ import { TypeProduct } from '../type-product';
 import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-type-product',
@@ -18,7 +19,8 @@ export class CreateTypeProductComponent {
   constructor(
 
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
 
   ) { }
   addForm!: FormGroup;
@@ -42,7 +44,7 @@ export class CreateTypeProductComponent {
   addTypeProduct() {
     this.productService.addTypeProduct(this.typeProduct)
       .subscribe(data => {
-        console.log("Type Produit ajouté avec succès");
+        this.toastr.success('Opération réussie', 'Succès');
         this.router.navigateByUrl('/products');
       },
       error=> console.log(error));

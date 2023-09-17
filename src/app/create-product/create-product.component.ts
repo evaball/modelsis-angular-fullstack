@@ -4,6 +4,7 @@ import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TypeProduct } from '../type-product';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-product',
@@ -22,7 +23,8 @@ export class CreateProductComponent implements OnInit{
   constructor(
 
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
 
   ) { }
   addForm!: FormGroup;
@@ -58,7 +60,7 @@ export class CreateProductComponent implements OnInit{
     this.productService
     .addProduct(data)
     .subscribe(data=>{
-      console.log(JSON.stringify("Produit ajoute"))
+      this.toastr.success('Opération réussie', 'Succès')
       this.router.navigateByUrl('/products')
     }, 
     error=>{console.log(error)})
